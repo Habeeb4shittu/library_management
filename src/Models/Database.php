@@ -10,7 +10,7 @@ class Database
     {
         try {
 
-            $conn = new PDO('mysql:host=localhost;dbname=library_management', "root", "");
+            $conn = new PDO('mysql:host=localhost;dbname=klemzxvb_readers', "klemzxvb_reader", "UC*y)S,T33(t");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->connection = $conn;
         } catch (PDOException $err) {
