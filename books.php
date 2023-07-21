@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . './src/Models/Database.php';
+require_once __DIR__ . '/src/Models/Database.php';
 if (!(isset($_SESSION['user_id']))) {
     header('location: login.php');
     return;
@@ -16,7 +16,7 @@ $books = array_reverse($books);
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <?php require_once __DIR__ . './includes/styles.php' ?>
+    <?php require_once __DIR__ . '/includes/styles.php' ?>
 
     <title>Books</title>
 </head>
@@ -87,7 +87,7 @@ $books = array_reverse($books);
         </div>
         <button class="btn btn-success mb-3" id="loadMore">Load More...</button>
     </main>
-    <?php require_once __DIR__ . './includes/scripts.php' ?>
+    <?php require_once __DIR__ . '/includes/scripts.php' ?>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . './src/request.php';
+require_once __DIR__ . '/src/request.php';
 if (isset($_SESSION['user_id'])) {
     header('location: books.php');
     return;
@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php require_once __DIR__ . './includes/styles.php' ?>
+    <?php require_once __DIR__ . '/includes/styles.php' ?>
     <title>Library Management System -- User Login</title>
 </head>
 
@@ -41,7 +41,7 @@ if (isset($_SESSION['user_id'])) {
         </form>
         <p>Not a user? <a href="./register.php">Register</a></p>
     </main>
-    <?php require_once __DIR__ . './includes/scripts.php' ?>
+    <?php require_once __DIR__ . '/includes/scripts.php' ?>
 </body>
 
 </html>

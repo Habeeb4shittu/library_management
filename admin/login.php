@@ -12,7 +12,7 @@ if (isset($_SESSION['email'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php require_once __DIR__ . './includes/styles.php' ?>
+        <?php require_once __DIR__ . '/includes/styles.php' ?>
         <title>Library Management System -- Admin Login</title>
     </head>
 
@@ -42,7 +42,7 @@ if (isset($_SESSION['email'])) {
             </form>
             <p>Not an admin? <a href="./register.php">Register</a></p>
         </main>
-        <?php require_once __DIR__ . './includes/scripts.php' ?>
+        <?php require_once __DIR__ . '/includes/scripts.php' ?>
     </body>
 
 </html>

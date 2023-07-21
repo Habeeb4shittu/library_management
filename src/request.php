@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . './Controllers/Admin.php';
-require_once __DIR__ . './Controllers/User.php';
-require_once __DIR__ . './Controllers/Category.php';
-require_once __DIR__ . './Controllers/Book.php';
-require_once __DIR__ . './Models/Database.php';
+require_once __DIR__ . '/Controllers/Admin.php';
+require_once __DIR__ . '/Controllers/User.php';
+require_once __DIR__ . '/Controllers/Category.php';
+require_once __DIR__ . '/Controllers/Book.php';
+require_once __DIR__ . '/Models/Database.php';
 if (isset($_POST['register'])) {
     array_pop($_POST);
     $firstname = $_POST['firstname'];

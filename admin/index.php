@@ -19,13 +19,13 @@ $downloadCount = (new Database())->countDownloads($user['id']);
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <?php require_once __DIR__ . './includes/styles.php' ?>
+    <?php require_once __DIR__ . '/includes/styles.php' ?>
 
     <title>Admin Dashboard</title>
 </head>
 
 <body class='dashboard'>
-    <?php require_once __DIR__ . './includes/nav.php' ?>
+    <?php require_once __DIR__ . '/includes/nav.php' ?>
     <a href='./src/logout.php' class='logout'>
         <i class='fas fa-arrow-right-from-bracket'></i>
     </a>
@@ -69,7 +69,7 @@ $downloadCount = (new Database())->countDownloads($user['id']);
         </div>
         <div id="chart"></div>
     </main>
-    <?php require_once __DIR__ . './includes/scripts.php' ?>
+    <?php require_once __DIR__ . '/includes/scripts.php' ?>
 </body>
 
 </html>

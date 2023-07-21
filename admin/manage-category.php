@@ -17,13 +17,13 @@ $num = 0;
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <?php require_once __DIR__ . './includes/styles.php' ?>
+        <?php require_once __DIR__ . '/includes/styles.php' ?>
 
         <title>Manage Category</title>
     </head>
 
     <body class="dashboard">
-        <?php require_once __DIR__ . './includes/nav.php' ?>
+        <?php require_once __DIR__ . '/includes/nav.php' ?>
 
         <main class="category">
             <div class="table-wrapper">
@@ -103,7 +103,7 @@ $num = 0;
                 </div>
             </div>
         </main>
-        <?php require_once __DIR__ . './includes/scripts.php' ?>
+        <?php require_once __DIR__ . '/includes/scripts.php' ?>
     </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . './src/Models/Database.php';
-require_once __DIR__ . './src/request.php';
+require_once __DIR__ . '/src/Models/Database.php';
+require_once __DIR__ . '/src/request.php';
 if (!(isset($_SESSION['user_id']))) {
     header('location: login.php');
     return;
@@ -17,7 +17,7 @@ $books = array_reverse($books);
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <?php require_once __DIR__ . './includes/styles.php' ?>
+    <?php require_once __DIR__ . '/includes/styles.php' ?>
 
     <title><?= $user['username'] . "'s profile" ?></title>
 </head>
@@ -166,7 +166,7 @@ $books = array_reverse($books);
             <input type="submit" value="Change" name="resetPass" form="pass">
         </section>
     </main>
-    <?php require_once __DIR__ . './includes/scripts.php' ?>
+    <?php require_once __DIR__ . '/includes/scripts.php' ?>
 </body>
 
 </html>
