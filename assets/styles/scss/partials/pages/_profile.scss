@@ -1,0 +1,239 @@
+@use '../abstracts/var'as *;
+
+#profile {
+    display: grid;
+
+    @media screen and (min-width:$md) {
+        grid-template-columns: 18rem 1fr;
+    }
+}
+
+aside {
+    border-right      : 5px inset $primaryColor;
+    height            : 100vh;
+    width             : 15rem;
+    background        : #d6d6d6;
+    max-width         : 18rem;
+    position          : fixed;
+    left              : -150%;
+    z-index           : 1000;
+    top               : 0;
+    transition        : .5s;
+    padding           : 1rem 0;
+    display           : grid;
+    grid-template-rows: auto 1fr;
+    place-items       : center;
+
+    @media screen and (min-width:$md) {
+        left    : 0;
+        position: static;
+        width   : auto;
+    }
+
+    .side-links {
+        width       : 100%;
+        display     : grid;
+        place-items : center;
+        padding-left: 0;
+
+        li {
+            border-bottom: .2rem ridge $primaryColor;
+            width        : 100%;
+            font-size    : 1.5rem;
+            text-align   : center;
+
+            a {
+                color     : $primaryColor;
+                transition: .5s;
+                text-align: center;
+
+                &:hover {
+                    letter-spacing: 2px;
+                }
+            }
+        }
+    }
+
+    &.slide {
+        left: 0;
+    }
+
+    .user {
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        gap            : 1rem;
+
+
+        span {
+            width        : 2rem;
+            height       : 2rem;
+            font-size    : 1.3rem;
+            border-radius: 50%;
+            background   : $primaryColor;
+            color        : $accent;
+            display      : grid;
+            place-items  : center;
+            cursor       : pointer;
+        }
+    }
+
+    .toggler {
+        position : absolute;
+        top      : 0;
+        right    : 0;
+        padding  : .3rem .6rem;
+        color    : #c21414;
+        font-size: 1.3rem;
+        cursor   : pointer;
+
+        @media screen and (min-width:$md) {
+            display: none;
+        }
+
+        @media screen and (min-width:$md) {
+            left    : 0;
+            position: static;
+            width   : auto;
+        }
+
+        &:hover {
+            background: #c21414;
+            color     : $accent;
+        }
+    }
+}
+
+.prof {
+    height    : 100vh;
+    background: #d6d6d6;
+    padding   : 1rem;
+    overflow  : hidden;
+    overflow-y: auto;
+
+    .toggler {
+        width        : 2rem;
+        height       : 2rem;
+        font-size    : 1.3rem;
+        border-radius: 50%;
+        background   : $primaryColor;
+        color        : $accent;
+        display      : grid;
+        place-items  : center;
+        cursor       : pointer;
+        position     : fixed;
+        top          : 1rem;
+        z-index      : 1000;
+        right        : 1rem;
+
+        @media screen and (min-width:$md) {
+            display: none;
+        }
+    }
+
+    h2 {
+        color      : $secondaryColor;
+        text-shadow: .1rem .1rem .1rem $primaryColor;
+    }
+
+    section {
+        width        : 100%;
+        margin-bottom: 3rem;
+
+        &#settings {
+            h2 {
+                justify-self: start;
+                align-self  : start;
+            }
+        }
+
+        &#resetPass {
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+            flex-direction : column;
+
+            h2 {
+                align-self: start;
+            }
+
+            #pass {
+                width    : 90%;
+                display  : grid;
+                gap      : 1rem;
+                max-width: 25rem;
+            }
+
+            input[type="submit"] {
+                max-width : 25rem;
+                margin-top: 1rem;
+            }
+        }
+
+        &#liked {
+            .lk {
+                display              : grid;
+                grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+                gap                  : 1rem;
+
+                .bk {
+                    display        : flex;
+                    justify-content: start;
+                    gap            : 3rem;
+                    align-items    : center;
+                    color          : $primaryColor;
+                    font-size      : clamp(.8rem, 3vw, 1.3rem);
+                    cursor         : pointer;
+                    border-radius  : .5rem;
+                    transition     : .25s;
+                    overflow       : hidden;
+                    padding-right  : 2rem;
+                    margin-left    : 2rem;
+
+                    &:hover {
+                        box-shadow: 0 0 .3rem .1rem #0007;
+                    }
+
+                    @media screen and (max-width:$md) {
+                        max-width: 15rem;
+                    }
+
+                    img {
+                        width: 2rem;
+                    }
+                }
+            }
+        }
+
+        &#details {
+
+            .cont {
+                display        : flex;
+                flex-wrap      : wrap;
+                gap            : 1rem;
+                justify-content: center;
+                align-items    : center;
+
+                .det {
+                    width          : 100%;
+                    max-width      : 30rem;
+                    padding-left   : 1rem;
+                    display        : flex;
+                    justify-content: center;
+                    align-items    : center;
+                    gap            : .5rem;
+
+                    .tag {
+                        font-size: 1.2rem;
+                        color    : $primaryColor;
+                    }
+
+                    input {
+                        padding: .2rem;
+                        width  : 100%;
+                    }
+                }
+            }
+        }
+    }
+}

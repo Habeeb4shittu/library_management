@@ -1,0 +1,105 @@
+@use '../abstracts/var'as *;
+@use '../components/table'as *;
+
+#book,
+.category {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+    gap            : .5rem;
+    overflow-y     : auto;
+    height         : calc(100% - 4rem);
+
+    div.modal-body {
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        flex-direction : column;
+    }
+
+    .exc {
+        font-size: 4rem;
+        color    : #e91010;
+    }
+
+    .table-wrapper {
+        width      : 95%;
+        max-width  : 85rem;
+        margin     : auto;
+        padding-top: 3rem;
+        max-height : 31.4625rem;
+        position   : relative;
+        z-index    : 900;
+
+        .table {
+            @extend %table;
+        }
+    }
+
+    form {
+        width          : 90%;
+        padding        : 1rem;
+        max-width      : 35rem;
+        border-radius  : .5rem;
+        box-shadow     : 0 0 .1rem .1rem #00000034;
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        gap            : .5rem;
+        overflow       : hidden;
+        margin         : auto;
+
+        &.modal-body {
+            margin    : 1rem auto;
+            box-shadow: none;
+        }
+
+        .book-chooser {
+            align-self     : start;
+            height         : 3rem !important;
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+            border         : .15rem solid $primaryColor;
+            width          : 100%;
+            place-content  : start;
+            border-radius  : .5rem;
+            background     : none;
+            padding-left   : 0.2rem;
+            color          : $primaryColor;
+        }
+
+        label[for="cover"] {
+            cursor     : pointer;
+            display    : grid;
+            place-items: center;
+            color      : $primaryColor;
+
+
+            .chooser {
+                width        : 5rem;
+                height       : 5rem;
+                border-radius: .7rem;
+
+                img {
+                    border-radius: inherit;
+                    width        : 100%;
+                    height       : 100%;
+                    object-fit   : cover;
+                }
+            }
+        }
+
+        input[type="submit"] {
+            max-width : 5rem;
+            align-self: end;
+        }
+    }
+
+
+    .alert {
+        position: static;
+    }
+}

@@ -1,0 +1,158 @@
+@use '../abstracts/var'as *;
+
+header {
+    width : 100%;
+    height: fit-content;
+
+    nav {
+        background     : $primaryColor;
+        display        : flex;
+        justify-content: space-between;
+        padding        : .5rem 1rem;
+        align-items    : center;
+        flex-wrap      : wrap;
+        z-index        : 100;
+        position       : fixed;
+        top            : 0;
+        width          : 100%;
+        box-shadow     : 0 .1rem .1rem .1rem #000000a4;
+
+        @media screen and (min-width: $md) {
+            padding: .5rem 4rem;
+
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color    : $secondaryColor;
+            cursor   : pointer;
+        }
+
+        ul {
+            display        : flex;
+            flex-direction : column;
+            position       : absolute;
+            top            : -402%;
+            right          : 0;
+            width          : 100%;
+            justify-content: center;
+            align-items    : center;
+            padding-left   : 0;
+            box-shadow     : 0 0 .1rem .1rem #00000034;
+            transition     : .5s;
+            z-index        : -80;
+            background     : $accent;
+
+            @media screen and (min-width: $md) {
+                position      : static;
+                flex-direction: row;
+                background    : none;
+                box-shadow    : none;
+                width         : fit-content;
+            }
+
+            &.active {
+                top: 100%;
+            }
+
+            li {
+                border-bottom: 1px solid #0002;
+                width        : 100%;
+                transition   : .5s;
+
+                @media screen and (min-width: $md) {
+                    border       : none;
+                    border-radius: .5rem;
+                }
+
+                &:hover {
+                    background: #0000002c;
+
+                    @media screen and (min-width: $md) {
+                        background: none;
+                    }
+
+                    a {
+                        letter-spacing: .1rem;
+                        color         : $secondaryColor;
+                        text-shadow   : 1px 1px 1px #00000066;
+                    }
+                }
+
+                &:last-of-type {
+                    border: none;
+                }
+
+                a {
+                    color     : $primaryColor;
+                    display   : block;
+                    text-align: center;
+                    transition: .5s;
+                    padding   : .8rem 5rem;
+
+                    @media screen and (min-width: $md) {
+                        color    : $accent;
+                        padding  : .8rem 1.5rem;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        .bar {
+            cursor   : pointer;
+            font-size: 2rem;
+            color    : $secondaryColor;
+
+            @media screen and (min-width: $md) {
+                display: none;
+            }
+        }
+    }
+
+    .hero {
+        text-align         : justify;
+        height             : 100vh;
+        background-position: center center;
+        background-repeat  : no-repeat;
+        background-size    : cover;
+        width              : 100%;
+
+        .overlay {
+            width     : 100%;
+            height    : 100%;
+            background: #000000ad;
+
+            div {
+                height         : 100%;
+                display        : flex;
+                justify-content: center;
+                align-items    : center;
+                flex-direction : column;
+                width          : 95%;
+                max-width      : 35rem;
+                margin         : auto;
+                color          : $secondaryColor;
+                gap            : 2rem;
+
+                h1,
+                p {
+                    text-align: center;
+                }
+
+                .login {
+                    padding      : .8rem 1.6rem;
+                    border-radius: .5rem;
+                    background   : $primaryColor;
+                    color        : $accent;
+                    transition   : .5s;
+                    box-shadow   : 0 .3rem .1rem #000000cc;
+
+                    &:hover {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+}

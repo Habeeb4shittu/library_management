@@ -1,0 +1,227 @@
+@use '../abstracts/var'as *;
+
+#books {
+    min-height: 100vh;
+    background: $bg;
+}
+
+.books-main {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    gap           : 2rem;
+
+    .modal {
+        .input {
+            animation: unset;
+        }
+    }
+
+    .greeting {
+        display        : flex;
+        align-items    : center;
+        justify-content: space-between;
+        width          : 90%;
+
+        h3 {
+            justify-self: start;
+            color       : $primaryColor;
+            font-family : cursive;
+            font-style  : italic;
+            text-shadow : .05rem .1rem .07rem #00000077;
+        }
+
+        a {
+            width        : 2rem;
+            height       : 2rem;
+            font-size    : 1.3rem;
+            border-radius: 50%;
+            background   : $primaryColor;
+            color        : $accent;
+            display      : grid;
+            place-items  : center;
+        }
+    }
+
+    .search {
+        width          : 90%;
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        gap            : .5rem;
+        flex-wrap      : wrap;
+
+        .input {
+            width: 100%;
+        }
+    }
+
+    .books {
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        gap            : 2rem;
+        flex-wrap      : wrap;
+        width          : 100%;
+
+        .alert {
+            position: fixed;
+            width   : 80%;
+            top     : 1rem;
+        }
+
+        .not-found {
+            color: #ee3a1a;
+        }
+
+        .book-ju {
+            cursor        : pointer;
+            width         : 80%;
+            max-width     : 18rem;
+            height        : 24rem;
+            display       : flex;
+            flex-direction: column;
+            background    : $accent;
+            padding       : 0.5rem;
+            background    : lighten($secondaryColor, 20%);
+            color         : $primaryColor;
+            border-radius : .5rem;
+            transition    : .5s;
+            box-shadow    : 0 0 .2rem .2rem #00000034;
+            position      : relative;
+
+            .overlay {
+                position       : absolute;
+                top            : 0;
+                left           : 0;
+                width          : 100%;
+                height         : 100%;
+                display        : flex;
+                justify-content: center;
+                align-items    : center;
+                background     : #0008;
+                border-radius  : inherit;
+                gap            : 1rem;
+                transform      : scale(0);
+                transition     : .25s;
+
+                span {
+                    font-size : 2rem;
+                    color     : $accent;
+                    transition: .25s;
+
+                    &.red {
+                        color: #ee072e;
+                    }
+
+                    &:hover {
+                        font-size: 2.2rem;
+                    }
+                }
+            }
+
+            &:hover {
+                box-shadow: none;
+                transform : translateY(-1%);
+
+                .overlay {
+                    transform: scale(1);
+                }
+            }
+
+            .image {
+                height       : 75%;
+                width        : 100%;
+                border-radius: inherit;
+
+                img {
+                    height       : 100%;
+                    width        : 100%;
+                    object-fit   : cover;
+                    border-radius: .5rem .5rem 0 0;
+                }
+            }
+
+            .details {
+                display        : flex;
+                justify-content: space-between;
+                align-items    : center;
+                flex-direction : column;
+
+                height: 100%;
+
+                .top,
+                .bottom {
+                    width          : 100%;
+                    display        : flex;
+                    justify-content: space-between;
+                    align-items    : center;
+
+                    .book-category {
+                        font-size : .9rem;
+                        font-style: italic;
+                    }
+                }
+
+                .title {
+                    font-size : clamp(1.2rem, 2vw, 1.3rem);
+                    text-align: center;
+                }
+
+                .price {
+                    justify-self: end;
+                    align-self  : end;
+                }
+            }
+        }
+    }
+}
+
+#bookMode {
+
+    .card {
+        width          : 100%;
+        height         : 100%;
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        position       : relative;
+
+        .image {
+            width : 100%;
+            height: 100%;
+
+            img {
+                width     : 100%;
+                height    : 100%;
+                object-fit: cover;
+            }
+        }
+
+        .details {
+            position     : absolute;
+            top          : 0;
+            left         : 0;
+            background   : #0007;
+            height       : 100%;
+            width        : 100%;
+            display      : grid;
+            place-items  : center;
+            place-content: center;
+            color        : $secondaryColor;
+
+            h5 {
+                display        : flex;
+                justify-content: space-between;
+                gap            : 5rem;
+                width          : 100%;
+                align-items    : center;
+
+                span {
+                    color: $accent;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+@use '../abstracts/var'as *;
+
+footer {
+    display       : grid;
+    place-items   : center;
+    color         : $accent;
+    background    : $primaryColor;
+    padding       : 1rem;
+    padding-bottom: 0;
+
+    @media screen and (min-width: $md) {
+        padding       : 4rem;
+        padding-bottom: 0;
+    }
+
+    section {
+        width          : 100%;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+        flex-wrap      : wrap;
+        position       : relative;
+
+
+        h4 {
+            font-size: 1.8rem;
+            color    : $secondaryColor;
+        }
+
+        .wrapper {
+            max-width      : 25rem;
+            display        : flex;
+            flex-direction : column;
+            justify-content: center;
+            align-items    : start;
+
+            ul {
+                padding-left: 0;
+
+                li {
+                    a {
+                        font-size      : 1rem;
+                        color          : lighten($color: $secondaryColor, $amount: 30);
+                        text-decoration: underline;
+                        transition     : .5s;
+
+                        &:hover {
+                            color: $accent;
+                        }
+                    }
+                }
+            }
+
+            p {
+                text-align: justify;
+            }
+
+            .icos {
+                justify-self   : end;
+                display        : flex;
+                justify-content: center;
+                align-items    : center;
+                gap            : 1rem;
+
+                a {
+                    font-size : 2rem;
+                    color     : $secondaryColor;
+                    transition: .5s;
+
+                    &:hover {
+                        transform: translateY(-10%);
+                        color    : lighten($secondaryColor, 10);
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        color: gray;
+    }
+}

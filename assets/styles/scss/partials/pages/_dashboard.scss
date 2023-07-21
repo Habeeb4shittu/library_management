@@ -1,0 +1,197 @@
+@use '../abstracts/var'as *;
+@use '../components/card'as *;
+
+.dashboard {
+    grid-template-rows: auto 1fr;
+    overflow          : hidden;
+}
+
+.dash-nav {
+    display           : flex;
+    justify-content   : space-between;
+    align-items       : center;
+    height            : 4rem;
+    padding           : 0.5rem;
+    background        : $primaryColor;
+    position          : relative;
+    // top            : 0;
+    // z-index        : 1000;
+
+    @media screen and (min-width: $md) {
+        padding-left: 4rem;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        color    : $secondaryColor;
+    }
+
+    .bar {
+        cursor   : pointer;
+        color    : $secondaryColor;
+        font-size: 2rem;
+
+        @media screen and (min-width: $md) {
+            display: none;
+        }
+    }
+
+    .links {
+        position       : absolute;
+        top            : -700%;
+        transition     : .5s;
+        width          : 100%;
+        z-index        : 1000;
+        left           : 0;
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        background     : $accent;
+        align-items    : center;
+        box-shadow     : 0 .1rem .1rem #00000023;
+        padding-left   : 0;
+
+        @media screen and (min-width: $md) {
+            position      : static;
+            padding-right : 4rem;
+            width         : fit-content;
+            background    : none;
+            box-shadow    : none;
+            flex-direction: row;
+            gap           : 2rem;
+        }
+
+        &.active {
+            top: 100%;
+        }
+
+        .link {
+            width          : 100%;
+            display        : flex;
+            flex-direction : column;
+            justify-content: space-between;
+            align-items    : center;
+            cursor         : pointer;
+            border-bottom  : 1px solid #00000023;
+            padding        : 1rem;
+
+            @media screen and (min-width: $md) {
+                border: none;
+            }
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            &.desktop {
+                &:hover {
+                    .drop {
+                        height: 80px;
+                    }
+                }
+            }
+
+            span {
+                width          : 100%;
+                display        : flex;
+                justify-content: space-between;
+                align-items    : center;
+                cursor         : pointer;
+
+                @media screen and (min-width: $md) {
+                    gap  : 1rem;
+                    color: $secondaryColor;
+                }
+            }
+
+            .drop {
+                display        : flex;
+                flex-direction : column;
+                justify-content: center;
+                align-items    : center;
+                height         : 0;
+                overflow       : hidden;
+                transition     : .5s;
+                width          : 100%;
+
+                @media screen and (min-width: $md) {
+                    background: $accent;
+                    box-shadow: 0 .1rem .1rem #00000023;
+                    position  : absolute;
+                    top       : 100%;
+                    width     : fit-content;
+                }
+
+                &.dropdown {
+                    height: 70px;
+                }
+
+                a {
+                    display   : block;
+                    color     : $primaryColor;
+                    text-align: center;
+                    width     : 100%;
+                    padding   : .4rem 0;
+                    transition: .5s;
+
+                    &:hover {
+                        background: #00000023;
+                    }
+
+                    @media screen and (min-width: $md) {
+                        padding: .6rem 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.logout {
+    position  : fixed;
+    right     : 1rem;
+    bottom    : 1rem;
+    color     : red;
+    font-size : 2rem;
+    transition: .5s;
+    z-index   : 1000;
+
+    &:hover {
+        font-size: 1.8rem;
+        color    : #bb1212;
+    }
+}
+
+#dash {
+    height    : calc(100vh - 4rem);
+    padding   : .5rem 1rem;
+    overflow  : hidden;
+    overflow-y: auto;
+
+    .greeting {
+        h3 {
+            color      : $primaryColor;
+            font-family: cursive;
+            font-style : italic;
+            text-shadow: .05rem .1rem .07rem #00000077;
+        }
+    }
+
+    .cards {
+        display              : grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap                  : 1rem;
+        place-items          : center;
+
+        @media screen and (min-width: $md) {
+            display        : flex;
+            flex-wrap      : wrap;
+            justify-content: center;
+            align-items    : center;
+        }
+
+        .card {
+            @extend %card;
+        }
+    }
+}

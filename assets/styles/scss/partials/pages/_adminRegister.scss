@@ -1,0 +1,212 @@
+@use '../abstracts/var'as *;
+
+#register {
+    width        : 100%;
+    height       : 100%;
+    display      : grid;
+    align-content: center;
+    align-items  : center;
+    justify-items: center;
+    background   : none;
+    overflow     : hidden;
+
+    .bg {
+        display              : grid;
+        grid-template-columns: repeat(2, 1fr);
+        position             : fixed;
+        z-index              : -300;
+        width                : 100%;
+        height               : 100vh;
+        filter               : blur(50px);
+        transform            : scale(2);
+
+        .bgs {
+            position: relative;
+
+            &:first-of-type {
+                background: #b66700;
+            }
+
+            &:nth-child(2) {
+                background: #c46800;
+            }
+
+            &:nth-child(3) {
+                background: #e6d00c;
+            }
+
+            &:nth-child(4) {
+                background: #f7c935;
+            }
+        }
+    }
+
+    @keyframes runAround {
+        0% {
+            transform: translateY(-50%);
+        }
+
+        20% {
+            transform: translateX(30%);
+        }
+
+        50% {
+            transform: translateY(0);
+        }
+
+        70% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateY(-50%);
+        }
+    }
+
+    @keyframes runAroundTwo {
+        0% {
+            transform: translateY(50%);
+        }
+
+        20% {
+            transform: translateX(-30%);
+        }
+
+        50% {
+            transform: translateY(0);
+        }
+
+        70% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateY(50%);
+        }
+    }
+
+    .runners {
+        width     : 100%;
+        height    : 100%;
+        position  : fixed;
+        z-index   : -200;
+        background: none;
+
+        @media screen and (max-width: 1100px) {
+            display: none;
+        }
+
+        .runner {
+            width        : 5rem;
+            height       : 5rem;
+            position     : absolute;
+            background   : #00000067;
+            box-shadow   : 0 0 .1rem .2rem #ffffff2a;
+            border-radius: .5rem;
+            transition   : 1s;
+
+            &:first-of-type {
+                top      : 4rem;
+                left     : 9rem;
+                animation: runAround 8s infinite;
+            }
+
+            &:nth-child(2) {
+                top      : 10rem;
+                right    : 7rem;
+                animation: runAroundTwo 8s infinite;
+            }
+
+            &:nth-child(3) {
+                left     : 10rem;
+                bottom   : 7rem;
+                animation: runAroundTwo 8s infinite;
+            }
+
+            &:nth-child(4) {
+                right    : 10rem;
+                bottom   : 13rem;
+                animation: runAround 8s infinite;
+            }
+
+            &:nth-child(5) {
+                right    : 35rem;
+                animation: runAround 4s infinite;
+                top      : 4rem;
+            }
+
+            &.small {
+                width : 3rem;
+                height: 3rem;
+            }
+        }
+    }
+
+    @keyframes move {
+        from {
+            transform: translateX(-150%);
+        }
+
+        to {
+            transform: 0;
+        }
+    }
+
+    @keyframes moveLeft {
+        from {
+            transform: translateX(150%);
+        }
+
+        to {
+            transform: 0;
+        }
+    }
+
+    &.login {
+        form {
+            grid-template-columns: repeat(1, 1fr);
+            max-width            : 20rem;
+
+            input[type="submit"] {
+                animation: move 1s;
+            }
+        }
+    }
+
+    form {
+        width                   : 90%;
+        max-width               : 40rem;
+        display                 : grid;
+        grid-template-columns   : repeat(1, 1fr);
+        place-items             : center;
+        place-content           : center;
+        gap                     : 1rem;
+        // box-shadow           : 0 0 .1rem .2rem #00000067;
+        padding                 : 1rem;
+        border-radius           : .5rem;
+
+        @media screen and (min-width: $md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+
+        input[type="submit"] {
+            padding         : .8rem 1.6rem;
+            border-radius   : .5rem;
+            background      : $primaryColor;
+            color           : $accent;
+            transition      : .5s;
+            box-shadow      : 0 .3rem .1rem #000000cc;
+            text-align      : center;
+            width           : 100%;
+            border          : none;
+            // grid-column  : 1/ span 2;
+            animation       : moveLeft 1s;
+            margin-bottom   : 1rem;
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+%btn {
+    padding      : .8rem 1.6rem;
+    border-radius: .5rem;
+    background   : $primaryColor;
+    color        : $accent;
+    transition   : .5s;
+    box-shadow   : 0 .3rem .1rem #000000cc;
+
+    &:hover {
+        box-shadow: none;
+    }
+}

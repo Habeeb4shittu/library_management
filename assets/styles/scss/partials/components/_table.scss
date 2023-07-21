@@ -1,0 +1,40 @@
+@use '../abstracts/var'as *;
+
+%table {
+    overflow : auto;
+    font-size: clamp(.8rem, 2vw, 1.1rem);
+
+    thead {
+        background: $primaryColor;
+        color     : $accent;
+    }
+
+    tbody {
+        tr {
+
+            &:nth-of-type(odd) {
+                background: darken($secondaryColor, 5%);
+            }
+
+            &:nth-of-type(even) {
+                background: lighten($secondaryColor, 15%);
+            }
+
+            td {
+
+                &:last-of-type {
+                    display        : flex;
+                    justify-content: center;
+                    align-items    : center;
+                    gap            : 0.5rem;
+                }
+
+                img {
+                    height       : 100%;
+                    max-height   : 2.4rem;
+                    cursor       : pointer;
+                }
+            }
+        }
+    }
+}
